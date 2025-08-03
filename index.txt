@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCeo - Full Stack Web Developer</title>
+    <!-- Stili CSS personalizzati per il sito -->
+    <style>
+        /* CSS Reset and Basic Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #fff;
+            padding: 0.5rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #35917D;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .logo:hover {
+            color: #2a7a6a;
+        }
+
+        .navbar nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1.5rem; /* Spaziatura tra gli elementi del menu */
+        }
+
+        .navbar nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 1rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .navbar nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #35917D;
+            transition: width 0.3s ease;
+        }
+
+        .navbar nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(135deg, #35917D, #2a7a6a);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        .hero-section h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-in-out 0.5s;
+            animation-fill-mode: both;
+        }
+
+        /* Generic Section Styles */
+        .content-section {
+            padding: 5rem 0;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: #e9e9e9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        .content-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #35917D;
+            position: relative;
+        }
+
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #35917D;
+            border-radius: 2px;
+        }
+
+        /* Service Section */
+        .service-list {
+            display: flex;
+            justify-content: space-around;
+            gap: 2rem;
+        }
+
+        .service-item {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Project Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-card h3 {
+            margin: 1.5rem 0 0.5rem;
+            color: #35917D;
+        }
+
+        .project-card p {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        /* Contatti Section */
+        .contact-section {
+            background-color: #35917D;
+            color: #fff;
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .contact-section h2 {
+            color: #fff;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-details p {
+            margin: 0.8rem 0;
+        }
+
+        .contact-details a {
+            color: #fff;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c2c2c;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Media Queries per dispositivi mobili */
+        @media (max-width: 768px) {
+            .navbar nav {
+                display: none;
+            }
+            .hero-section h1 {
+                font-size: 3rem;
+            }
+            .hero-section h2 {
+                font-size: 1.5rem;
+            }
+            .service-list {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Intestazione del sito con navbar -->
+    <header class="navbar">
+        <div class="logo">
+            WebCeo
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#servizi">Servizi</a></li>
+                <li><a href="#progetti">Progetti</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sezione Iniziale -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1>Pietro Ceolotto</h1>
+                <h2>Full Stack Web Developer</h2>
+                <p>Trasformo le idee in soluzioni web potenti e funzionali.</p>
+            </div>
+        </section>
+
+        <!-- Sezione Servizi -->
+        <section id="servizi" class="content-section">
+            <div class="container">
+                <h2>I miei servizi</h2>
+                <p>Sono Pietro Ceolotto, un **Full Stack Web Developer** specializzato nella creazione di gestionali web su misura, efficienti e scalabili.</p>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h3>Sviluppo Full Stack</h3>
+                        <p>Competenze in **Angular** (Front-end), **Node.js** (Back-end) e **SQL Server** (Database) per creare applicazioni web complete.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Applicazioni mobili</h3>
+                        <p>Sviluppo di applicazioni ibride con **Ionic** per portare i tuoi servizi su smartphone e tablet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Progetti -->
+        <section id="progetti" class="content-section">
+            <div class="container">
+                <h2>I miei progetti</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x200/35917D/FFFFFF?text=Progetto+1" alt="Placeholder Progetto 1">
+                        <h3>[Titolo Progetto 1]</h3>
+                        <p>[Descrizione breve del progetto, tecnologie usate].</p>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x200/35917D/FFFFFF?text=Progetto+2" alt="Placeholder Progetto 2">
+                        <h3>[Titolo Progetto 2]</h3>
+                        <p>[Descrizione breve del progetto, tecnologie usate].</p>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x200/35917D/FFFFFF?text=Progetto+3" alt="Placeholder Progetto 3">
+                        <h3>[Titolo Progetto 3]</h3>
+                        <p>[Descrizione breve del progetto, tecnologie usate].</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Contatti -->
+        <section id="contatti" class="content-section contact-section">
+            <div class="container">
+                <h2>Contattami</h2>
+                <p>Sei pronto a dare vita al tuo progetto? Contattami per un preventivo o per discutere la tua idea.</p>
+                <div class="contact-details">
+                    <p><strong>Nome:</strong> Pietro Ceolotto</p>
+                    <p><strong>Email:</strong> pietro.ceolotto@gmail.com</p>
+                    <p><strong>Telefono:</strong> +39 3456414418</p>
+                    <p><strong>Sito web:</strong> <a href="http://www.webceo.it" style="color: #fff;">webceo.it</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 WebCeo. Tutti i diritti riservati.</p>
+    </footer>
+
+    <!-- Script JavaScript per lo smooth scroll -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
