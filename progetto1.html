@@ -30,7 +30,7 @@
             z-index: 1000;
         }
         .navbar .logo {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: bold;
             color: #35917D;
             transition: color 0.3s ease;
@@ -44,6 +44,9 @@
             padding: 0;
             display: flex;
             gap: 1.5rem;
+        }
+        .navbar nav ul li {
+            position: relative;
         }
         .navbar nav ul li a {
             text-decoration: none;
@@ -65,6 +68,44 @@
         }
         .navbar nav ul li a:hover::after {
             width: 100%;
+        }
+
+        /* Dropdown Menu for Projects */
+        .dropdown-menu {
+            display: none !important;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            padding: 0.5rem 0 !important;
+            border-radius: 5px;
+            min-width: 250px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar nav ul li:hover .dropdown-menu {
+            display: block !important;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            white-space: nowrap;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f4f4f4;
+            color: #35917D;
+        }
+
+        .dropdown-menu li a::after {
+            display: none;
         }
 
         /* Project Detail Styles */
@@ -91,6 +132,35 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
         }
+
+        .project-detail-screenshots {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .screenshot-item {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .screenshot-item h3 {
+            color: #35917D;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
         .project-detail-content {
             display: flex;
             gap: 3rem;
@@ -130,11 +200,16 @@
             padding: 1.5rem 0;
             font-size: 0.9rem;
         }
+
+        /* Media Queries per dispositivi mobili */
+        @media (max-width: 768px) {
+            .navbar nav {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <!-- Intestazione del sito con navbar -->
     <header class="navbar">
         <div class="logo">
             <a href="index.html">WebCeo</a>
@@ -143,18 +218,24 @@
             <ul>
                 <li><a href="index.html#home">Home</a></li>
                 <li><a href="index.html#servizi">Servizi</a></li>
-                <li><a href="index.html#progetti">Progetti</a></li>
+                <li class="dropdown">
+                    <a href="index.html#progetti">Progetti</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="progetto1.html">Gestione Presenze e Timbrature</a></li>
+                        <li><a href="progetto2.html">Gestione Commesse di Lavoro</a></li>
+                        <li><a href="progetto3.html">Gestione degli Eventi</a></li>
+                    </ul>
+                </li>
                 <li><a href="index.html#contatti">Contatti</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- Sezione Dettagli Progetto -->
         <section class="project-detail-section">
             <div class="container">
                 <h1>Gestione Presenze e Timbrature con QR-Code</h1>
-                <img src="https://placehold.co/1200x600/35917D/FFFFFF?text=Gestione+Presenze+QR+Code" alt="Immagine di un sistema di gestione presenze con QR Code">
+                <img src="presenze1.png" alt="Dashboard del gestionale presenze con lista di ingressi e timbrature">
                 <div class="project-detail-content">
                     <div class="project-detail-text">
                         <p>Questo progetto è un gestionale web completo progettato per semplificare e automatizzare il processo di rilevazione delle presenze e delle timbrature dei dipendenti. Sfruttando la tecnologia dei codici QR, offre una soluzione moderna e efficiente per il controllo degli accessi e la rendicontazione delle ore lavorate.</p>
@@ -164,12 +245,21 @@
                     <div class="project-detail-features">
                         <h3>Funzionalità Principali</h3>
                         <ul>
-                            <li>Rilevazione presenze tramite scansione di QR Code.</li>
-                            <li>Dashboard personalizzabile per monitorare in tempo reale le presenze.</li>
-                            <li>Generazione di report dettagliati su orari di lavoro, assenze e ferie.</li>
-                            <li>Gestione completa di dipendenti e turni di lavoro.</li>
-                            <li>Notifiche automatiche per ritardi o assenze non giustificate.</li>
+                            <li>**Rilevazione presenze tramite scansione di QR Code:** Registrazione rapida e sicura dell'entrata e dell'uscita dei dipendenti.</li>
+                            <li>**Dashboard personalizzabile:** Per monitorare in tempo reale le presenze dei dipendenti, con filtri per data, dipendente, mansione, azienda e agenzia interinale.</li>
+                            <li>**Gestione del personale:** Strumenti per aggiungere, modificare e gestire i dati dei dipendenti e le loro mansioni.</li>
+                            <li>**Possibilità di aggiungere manualmente le presenze e di modificare quelle esistenti.**</li>
                         </ul>
+                    </div>
+                </div>
+                <div class="project-detail-screenshots">
+                    <div class="screenshot-item">
+                        <h3>Report Giornaliero</h3>
+                        <img src="presenze2.png" alt="Schermata del report giornaliero con timeline grafica delle ore lavorate.">
+                    </div>
+                    <div class="screenshot-item">
+                        <h3>Report Mensile</h3>
+                        <img src="presenze3.png" alt="Schermata del report mensile con tabella di riepilogo delle ore lavorate per mese.">
                     </div>
                 </div>
             </div>
