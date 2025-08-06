@@ -125,41 +125,6 @@
             color: #35917D;
             margin-bottom: 2rem;
         }
-        .project-detail-section img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-
-        .project-detail-screenshots {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .screenshot-item {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .screenshot-item h3 {
-            color: #35917D;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .screenshot-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
 
         .project-detail-content {
             display: flex;
@@ -190,6 +155,35 @@
         }
         .project-detail-features li:hover {
             transform: translateX(5px);
+        }
+
+        /* Screenshots Grid Styles */
+        .project-detail-screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .screenshot-item {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .screenshot-item h3 {
+            color: #35917D;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
         /* Footer */
@@ -235,7 +229,6 @@
         <section class="project-detail-section">
             <div class="container">
                 <h1>Gestione Presenze e Timbrature con QR-Code</h1>
-                <img src="presenze1.png" alt="Dashboard del gestionale presenze con lista di ingressi e timbrature">
                 <div class="project-detail-content">
                     <div class="project-detail-text">
                         <p>Questo progetto è un gestionale web completo progettato per semplificare e automatizzare il processo di rilevazione delle presenze e delle timbrature dei dipendenti. Sfruttando la tecnologia dei codici QR, offre una soluzione moderna e efficiente per il controllo degli accessi e la rendicontazione delle ore lavorate.</p>
