@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCeo - Gestione delle Commesse di Lavoro</title>
+    <!-- Stili CSS personalizzati per il sito -->
+    <style>
+        /* CSS Reset and Basic Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #fff;
+            padding: 0.5rem 2rem;
+            position: fixed;
+            width: -webkit-fill-available;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #35917D;
+            transition: color 0.3s ease;
+        }
+        .navbar .logo:hover {
+            color: #2a7a6a;
+        }
+        .navbar nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1.5rem;
+        }
+        .navbar nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 1rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .navbar nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #35917D;
+            transition: width 0.3s ease;
+        }
+        .navbar nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Project Detail Styles */
+        .project-detail-section {
+            padding-top: 100px;
+            padding-bottom: 5rem;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+        .project-detail-section h1 {
+            text-align: center;
+            font-size: 3rem;
+            color: #35917D;
+            margin-bottom: 2rem;
+        }
+        .project-detail-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .project-detail-content {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+        .project-detail-text, .project-detail-features {
+            flex: 1;
+            min-width: 300px;
+        }
+        .project-detail-features h3 {
+            color: #35917D;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .project-detail-features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .project-detail-features li {
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        .project-detail-features li:hover {
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c2c2c;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Intestazione del sito con navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">WebCeo</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#servizi">Servizi</a></li>
+                <li><a href="index.html#progetti">Progetti</a></li>
+                <li><a href="index.html#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sezione Dettagli Progetto -->
+        <section class="project-detail-section">
+            <div class="container">
+                <h1>Gestione delle Commesse di Lavoro</h1>
+                <img src="https://placehold.co/1200x600/35917D/FFFFFF?text=Gestione+Commesse" alt="Immagine di un sistema di gestione commesse">
+                <div class="project-detail-content">
+                    <div class="project-detail-text">
+                        <p>Questo gestionale è stato sviluppato per fornire una visione d'insieme completa e in tempo reale su tutte le commesse aziendali. Dalla fase di assegnazione del progetto, alla pianificazione delle attività, fino alla chiusura e alla fatturazione, la piattaforma semplifica ogni passaggio.</p>
+                        <p>Con un'interfaccia intuitiva, è possibile tracciare lo stato di avanzamento, monitorare i costi e le risorse impiegate, e gestire la comunicazione con i clienti in modo efficiente. La soluzione è pensata per migliorare la produttività e la trasparenza all'interno del team.</p>
+                        <p><strong>Tecnologie utilizzate:</strong> Angular per il frontend, Node.js per il backend e SQL Server per il database.</p>
+                    </div>
+                    <div class="project-detail-features">
+                        <h3>Funzionalità Principali</h3>
+                        <ul>
+                            <li>Creazione e gestione centralizzata delle commesse.</li>
+                            <li>Assegnazione e monitoraggio delle attività del team.</li>
+                            <li>Tracciamento delle ore lavorate e dei costi associati.</li>
+                            <li>Gestione dei clienti e dei documenti di fatturazione.</li>
+                            <li>Reportistica avanzata per l'analisi della produttività.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 WebCeo. Tutti i diritti riservati.</p>
+    </footer>
+</body>
+</html>
