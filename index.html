@@ -21,7 +21,7 @@
             background-color: #fff;
             padding: 0.5rem 2rem;
             position: fixed;
-            width: -webkit-fill-available; /* Modificato per usare -webkit-fill-available */
+            width: -webkit-fill-available;
             top: 0;
             display: flex;
             justify-content: space-between;
@@ -31,9 +31,9 @@
         }
 
         .navbar .logo {
-            font-size: 1.5rem;
+            font-size: 2rem; /* Aumentato la dimensione del font */
             font-weight: bold;
-            color: #35917D;
+            color: #35917D; /* Colore del logo */
             transition: color 0.3s ease;
         }
 
@@ -46,7 +46,11 @@
             margin: 0;
             padding: 0;
             display: flex;
-            gap: 1.5rem; /* Spaziatura tra gli elementi del menu */
+            gap: 1.5rem;
+        }
+
+        .navbar nav ul li {
+            position: relative;
         }
 
         .navbar nav ul li a {
@@ -71,6 +75,45 @@
 
         .navbar nav ul li a:hover::after {
             width: 100%;
+        }
+
+        /* Dropdown Menu for Projects */
+        .dropdown-menu {
+            display: none !important;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            margin-top: 5px !important;
+            padding: 0.5rem 0 !important;
+            border-radius: 5px;
+            min-width: 250px;
+        }
+
+        /* Mostra il menu a tendina al passaggio del mouse sull'elemento li genitore */
+        .navbar nav ul li:hover .dropdown-menu {
+            display: block !important;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            white-space: nowrap;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f4f4f4;
+            color: #35917D;
+        }
+
+        .dropdown-menu li a::after {
+            display: none;
         }
 
         /* Hero Section */
@@ -178,6 +221,12 @@
             transform: scale(1.03);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
+        
+        .project-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
 
         .project-card img {
             width: 100%;
@@ -193,11 +242,11 @@
         .project-card p {
             padding: 0 1.5rem 1.5rem;
         }
-
+        
         /* Contatti Section */
         .contact-section {
-            background-color: #f0f0f0; /* Sfondo grigio chiaro per una migliore leggibilità */
-            color: #333; /* Testo più scuro per un contrasto migliore */
+            background-color: #f0f0f0;
+            color: #333;
             text-align: center;
             padding: 5rem 0;
         }
@@ -262,13 +311,20 @@
     <!-- Intestazione del sito con navbar -->
     <header class="navbar">
         <div class="logo">
-            WebCeo
+            <a href="#home">WebCeo</a>
         </div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#servizi">Servizi</a></li>
-                <li><a href="#progetti">Progetti</a></li>
+                <li class="dropdown">
+                    <a href="#progetti">Progetti</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#progetto1">Gestione Presenze e Timbrature</a></li>
+                        <li><a href="#progetto2">Gestione Commesse di Lavoro</a></li>
+                        <li><a href="#progetto3">Gestione degli Eventi</a></li>
+                    </ul>
+                </li>
                 <li><a href="#contatti">Contatti</a></li>
             </ul>
         </nav>
@@ -307,20 +363,20 @@
             <div class="container">
                 <h2>I miei progetti</h2>
                 <div class="project-grid">
-                    <div class="project-card">
-                        <img src="https://placehold.co/400x200/35917D/FFFFFF?text=Progetto+1" alt="Placeholder Progetto 1">
-                        <h3>[Titolo Progetto 1]</h3>
-                        <p>[Descrizione breve del progetto, tecnologie usate].</p>
+                    <div class="project-card" id="progetto1">
+                        <img src="https://placehold.co/400x200/35917D/FFFFFF?text=Gestione+Presenze+QR" alt="Immagine di un sistema di gestione presenze con QR Code">
+                        <h3>Gestione Presenze e Timbrature con QR-Code</h3>
+                        <p>Progetto per la gestione automatizzata delle presenze e delle timbrature dei dipendenti tramite scansione di codici QR, ottimizzando il controllo degli accessi e la rendicontazione oraria. Tecnologie: [Tecnologie usate, es. Node.js, Angular, SQL Server].</p>
                     </div>
-                    <div class="project-card">
-                        <img src="https://placehold.co/400x200/35917D/FFFFFF?text=Progetto+2" alt="Placeholder Progetto 2">
-                        <h3>[Titolo Progetto 2]</h3>
-                        <p>[Descrizione breve del progetto, tecnologie usate].</p>
+                    <div class="project-card" id="progetto2">
+                        <img src="https://placehold.co/400x200/35917D/FFFFFF?text=Gestione+Commesse" alt="Immagine di un sistema di gestione commesse">
+                        <h3>Gestione delle Commesse di Lavoro</h3>
+                        <p>Un gestionale completo per monitorare e organizzare le commesse di lavoro, dall'assegnazione alla fatturazione, con tracciamento avanzato delle attività e delle risorse. Tecnologie: [Tecnologie usate, es. Angular, Node.js, SQL Server].</p>
                     </div>
-                    <div class="project-card">
-                        <img src="https://placehold.co/400x200/35917D/FFFFFF?text=Progetto+3" alt="Placeholder Progetto 3">
-                        <h3>[Titolo Progetto 3]</h3>
-                        <p>[Descrizione breve del progetto, tecnologie usate].</p>
+                    <div class="project-card" id="progetto3">
+                        <img src="https://placehold.co/400x200/35917D/FFFFFF?text=Gestione+Eventi" alt="Immagine di un sistema di gestione eventi">
+                        <h3>Gestione degli Eventi</h3>
+                        <p>Piattaforma per la pianificazione, organizzazione e gestione di eventi di ogni tipo, inclusa la gestione di appuntamenti, chiamate ricevute e cose da fare. Tecnologie: [Tecnologie usate, es. Angular, Node.js, SQL Server].</p>
                     </div>
                 </div>
             </div>
@@ -358,4 +414,3 @@
     </script>
 </body>
 </html>
-
